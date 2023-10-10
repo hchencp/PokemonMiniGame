@@ -1,0 +1,93 @@
+import processing.core.PImage;
+   import java.util.Optional;
+   import java.util.List;
+   import java.util.*;
+
+
+   public final class Entity {
+       public static final double SAPLING_ACTION_ANIMATION_PERIOD = 1.000; // have to be in sync since grows and gains health at same time
+       public static final int SAPLING_HEALTH_LIMIT = 5;
+
+       public static final int SAPLING_HEALTH = 0;
+       public static final int SAPLING_NUM_PROPERTIES = 1;
+       public static final int TREE_HEALTH_MAX = 3;
+       public static final int TREE_HEALTH_MIN = 1;
+       public static final double TREE_ANIMATION_MAX = 0.600;
+       public static final double TREE_ANIMATION_MIN = 0.050;
+       public static final double TREE_ACTION_MIN = 1.000;
+       public static final double TREE_ACTION_MAX = 1.400;
+       public static final String STUMP_KEY = "stump";
+       public static final String TREE_KEY = "tree";
+       public static final String SAPLING_KEY = "sapling";
+       public EntityKind kind;
+       public String id;
+       public Point position;
+       public List<PImage> images;
+       public int imageIndex;
+       public int resourceLimit;
+       public int resourceCount;
+       public double actionPeriod;
+       public double animationPeriod;
+       public int health;
+       public int healthLimit;
+
+       public Entity(EntityKind kind, String id, Point position, List<PImage> images, int resourceLimit, int resourceCount, double actionPeriod, double animationPeriod, int health, int healthLimit) {
+           this.kind = kind;
+           this.id = id;
+           this.position = position;
+           this.images = images;
+           this.imageIndex = 0;
+           this.resourceLimit = resourceLimit;
+           this.resourceCount = resourceCount;
+           this.actionPeriod = actionPeriod;
+           this.animationPeriod = animationPeriod;
+           this.health = health;
+           this.healthLimit = healthLimit;
+       }
+
+       /**
+        * Helper method for testing. Preserve this functionality while refactoring.
+        */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+       // need resource count, though it always starts at 0
+       public static Entity createDudeNotFull(String id, Point position, double actionPeriod, double animationPeriod, int resourceLimit, List<PImage> images) {
+           return new Entity(EntityKind.DUDE_NOT_FULL, id, position, images, resourceLimit, 0, actionPeriod, animationPeriod, 0, 0);
+       }
+
+       // don't technically need resource count ... full
+       public static Entity createDudeFull(String id, Point position, double actionPeriod, double animationPeriod, int resourceLimit, List<PImage> images) {
+           return new Entity(EntityKind.DUDE_FULL, id, position, images, resourceLimit, 0, actionPeriod, animationPeriod, 0, 0);
+       }
+
+
+
+
+
+
